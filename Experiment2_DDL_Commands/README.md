@@ -105,123 +105,198 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 1
+INSERT INTO Products 
+SELECT ProductID, ProductName, Price, Stock from Discontinued_products;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1214" height="371" alt="image" src="https://github.com/user-attachments/assets/0ea38ca0-7283-4804-a965-165351d06285" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write an SQL query to add two new columns, first_name and last_name, to the table employee. Both columns should have a data type of varchar(50).
 
 ```sql
--- Paste your SQL code below for Question 2
+ALTER TABLE employee
+ADD first_name varchar(50);
+ALTER TABLE employee
+ADD last_name varchar(50);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1229" height="381" alt="image" src="https://github.com/user-attachments/assets/8a80f98c-f3d9-44b7-b4e5-0b7aa308cab5" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a new table named products with the following specifications:
+product_id as INTEGER and primary key.
+product_name as TEXT and not NULL.
+list_price as DECIMAL (10, 2) and not NULL.
+discount as DECIMAL (10, 2) with a default value of 0 and not NULL.
+A CHECK constraint at the table level to ensure:
+list_price is greater than or equal to discount
+discount is greater than or equal to 0
+list_price is greater than or equal to 0
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE products
+(
+product_id INTEGER PRIMARY KEY,
+product_name TEXT NOT NULL,
+list_price DECIMAL(10,2)NOT NULL CHECK(list_price>=discount),
+discount DECIMAL(10,2) DEFAULT 0 NOT NULL CHECK(discount>=0)
+)
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1226" height="362" alt="image" src="https://github.com/user-attachments/assets/13802a7a-0af7-45ac-9fbc-c46d4fbd1a20" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Shipments with the following constraints:
+ShipmentID as INTEGER should be the primary key.
+ShipmentDate as DATE.
+SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Shipments
+(
+ShipmentID INTEGER PRIMARY KEY,
+ShipmentDate DATE,
+SupplierID INTEGER,
+OrderID INTEGER,
+FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID),
+FOREIGN KEY(OrderID) REFERENCES Orders(OrderID)
+);
+
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1228" height="319" alt="image" src="https://github.com/user-attachments/assets/a72d812d-54d0-4b3a-af62-4caf0fe4e510" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+In the Student_details table, insert a student record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Student_details (RollNo, Name,Gender) 
+VALUES (205,'Olivia Green','F');
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS) 
+VALUES(207, 'Liam Smith','M','Mathematic',85);
+INSERT INTO Student_details(RollNo,Name,Gender,Subject)
+VALUES(208,'Sophia Johns','F','Science');
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1215" height="375" alt="image" src="https://github.com/user-attachments/assets/bec7ad98-3876-4416-a062-ec930fcef836" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert all customers from Old_customers into Customers
+
+Table attributes are CustomerID, Name, Address, Email
 
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Customers
+SELECT  CustomerID, Name, Address, Email FROM Old_customers;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1227" height="309" alt="image" src="https://github.com/user-attachments/assets/bf20002a-de5a-400b-b79f-9604fea56af9" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Add a new column named "discount" with the data type DECIMAL(5,2) to the "customer" table.
+
+Sample table: customer
 
 ```sql
--- Paste your SQL code below for Question 7
+ALTER TABLE customer
+ADD discount DECIMAL(5,2);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1233" height="447" alt="image" src="https://github.com/user-attachments/assets/3c0b9b56-f467-4d3c-94a0-73e1eecc5a0f" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Employees(
+EmployeeID Int primary key,
+FirstName varchar(50) not null,
+LastName varchar(50) not null,
+Email text UNIQUE,
+Salary INT CHECK(Salary>0),
+DepartmentID int,
+FOREIGN KEY(DepartmentID) REFERENCES  Departments(DepartmentID)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1228" height="509" alt="image" src="https://github.com/user-attachments/assets/d696617f-a21c-4332-96b8-7841951c912a" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert a customer with CustomerID 301, Name Michael Jordan, Address 123 Maple St, City Chicago, and ZipCode 60616 into the Customers table.
 
 ```sql
--- Paste your SQL code below for Question 9
+INSERT INTO Customers
+VALUES(301,'Michael Jordan','123 Maple St','Chicago',60616);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1220" height="320" alt="image" src="https://github.com/user-attachments/assets/1ed11a50-842f-4ef3-83d1-858d9df697fb" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Members with the following columns:
+
+MemberID as INTEGER
+MemberName as TEXT
+JoinDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 10
+CREATE TABLE Members(
+MemberID INTEGER,
+MemberName TEXT,
+JoinDate DATE 
+);
 ```
 
 **Output:**
-
-![Output10](output.png)
+<img width="1219" height="446" alt="image" src="https://github.com/user-attachments/assets/e49695cc-7acc-40e9-8af1-e8182493d492" />
 
 
 ## RESULT
