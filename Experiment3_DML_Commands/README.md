@@ -47,123 +47,148 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+<img width="949" height="303" alt="image" src="https://github.com/user-attachments/assets/f681969a-8c96-494c-ae4c-7713be209af2" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+UPDATE Products
+SET quantity = quantity*1.10;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1227" height="628" alt="image" src="https://github.com/user-attachments/assets/3a4a4546-d964-4593-b016-57556d179292" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="1192" height="289" alt="image" src="https://github.com/user-attachments/assets/48d7c12a-31ba-4457-97a7-540401b785e2" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE sales
+SET total_sell_price = quantity*sell_price
+WHERE product_id = 10;
 ```
 
 **Output:**
+<img width="1228" height="521" alt="image" src="https://github.com/user-attachments/assets/6a9414d3-64ba-40aa-990c-7d7bca6673d3" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="740" height="210" alt="image" src="https://github.com/user-attachments/assets/a83b0951-5f36-439d-9635-79a5968c2ffd" />
 
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE products
+SET availability= availability*2
+WHERE product_id=1;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1228" height="250" alt="image" src="https://github.com/user-attachments/assets/a6834079-d3a2-4850-b5df-9f96a58d145d" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1205" height="422" alt="image" src="https://github.com/user-attachments/assets/c18a143b-73af-4d5f-b82f-f78bbeb2b846" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+UPDATE employees
+SET salary = salary+500,email='updated'
+WHERE job_id='SA_REP'
+  AND commission_pct>0.15;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1220" height="521" alt="image" src="https://github.com/user-attachments/assets/aa43f5ae-e749-4ed8-846a-f8ea7783854d" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1228" height="584" alt="image" src="https://github.com/user-attachments/assets/3c0461b8-29f8-41b6-a70b-23dcd304b57f" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+DELETE FROM customer WHERE WORKING_AREA='New York';
+
 ```
 
 **Output:**
+<img width="1203" height="748" alt="image" src="https://github.com/user-attachments/assets/7ed7b78c-4a04-4b1d-a7aa-22f38dfc5e9f" />
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="910" height="547" alt="image" src="https://github.com/user-attachments/assets/bc8ef6cb-cecc-4eb0-9e68-bcb989dd740d" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+DELETE from Doctors WHERE specialization ISNULL;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1218" height="968" alt="image" src="https://github.com/user-attachments/assets/82e2e2eb-2f76-46c1-86f1-d226900ff355" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="777" height="555" alt="image" src="https://github.com/user-attachments/assets/384344b5-a621-45f6-a480-1afa19d97119" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Doctors
+WHERE last_name IS NULL;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1212" height="734" alt="image" src="https://github.com/user-attachments/assets/6e8c7ebf-4ee2-48dc-bbc5-a390811372dd" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1221" height="541" alt="image" src="https://github.com/user-attachments/assets/eec40611-f1b5-4536-9205-59e6c66383b2" />
 
 ```sql
--- Paste your SQL code below for Question 8
+DELETE FROM customer
+WHERE cust_name LIKE '%Holmes%';
 ```
 
 **Output:**
+<img width="1214" height="559" alt="image" src="https://github.com/user-attachments/assets/b275a75b-b6cd-41fc-adb4-5d21fd7c00b1" />
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1240" height="701" alt="image" src="https://github.com/user-attachments/assets/5fba00f1-5787-4b63-a67b-29b00a388b82" />
 
 ```sql
--- Paste your SQL code below for Question 9
+DELETE FROM customer 
+WHERE GRADE>=2;
 ```
 
 **Output:**
+<img width="1214" height="559" alt="image" src="https://github.com/user-attachments/assets/159b07b7-8474-4d6d-bd30-d481a4f8b37a" />
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="981" height="454" alt="image" src="https://github.com/user-attachments/assets/625c0dbe-335f-49ae-a5d3-88951f0cf952" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT * from EmployeeInfo WHERE EmpFname LIKE 'S%';
 ```
 
 **Output:**
+<img width="1215" height="280" alt="image" src="https://github.com/user-attachments/assets/7271b5c6-32cf-492c-b3ae-c3e0f12286c7" />
 
-![Output10](output.png)
+
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
