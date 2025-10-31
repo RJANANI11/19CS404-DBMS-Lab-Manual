@@ -38,123 +38,192 @@ DROP VIEW view_name;
 
 **Question 1**
 --
--- Paste Question 1 here
+From the following tables write a SQL query to count the number of customers with grades above the average in New York City. Return grade and count.
+``sql
+```SELECT grade, COUNT(*) 
+FROM customer
+WHERE grade > (
+    SELECT AVG(grade) 
+    FROM customer 
+    WHERE city = 'New York'
+)
+GROUP BY grade;
 
-```sql
--- Paste your SQL code below for Question 1
+
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="886" height="322" alt="image" src="https://github.com/user-attachments/assets/39ef352a-734f-4d40-b63c-25d9bf3881bf" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+From the following tables, write a SQL query to find all the orders issued by the salesman 'Paul Adam'. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT ord_no, purch_amt, ord_date, customer_id, orders.salesman_id
+FROM orders
+JOIN salesman ON orders.salesman_id = salesman.salesman_id
+WHERE salesman.name = 'Paul Adam';
+
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1237" height="347" alt="image" src="https://github.com/user-attachments/assets/97a46d70-9d0d-40b3-831b-ee6404e180cf" />
 
 **Question 3**
 ---
--- Paste Question 3 here
-
+From the following tables, write a SQL query to find those salespeople who earned the maximum commission. Return ord_no, purch_amt, ord_date, and salesman_id.
 ```sql
--- Paste your SQL code below for Question 3
+SELECT ord_no, purch_amt, ord_date, orders.salesman_id
+FROM orders
+JOIN salesman ON orders.salesman_id = salesman.salesman_id
+WHERE salesman.commission = (
+    SELECT MAX(commission) FROM salesman
+);
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1011" height="406" alt="image" src="https://github.com/user-attachments/assets/71e27164-dbaf-488e-8935-170c4f58a3e9" />
 
 **Question 4**
 ---
--- Paste Question 4 here
-
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is LESS than $2500.
 ```sql
--- Paste your SQL code below for Question 4
+SELECT *
+FROM CUSTOMERS
+WHERE SALARY < 2500;
+
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1237" height="421" alt="image" src="https://github.com/user-attachments/assets/cdc22a7f-0546-4eaa-9561-cd9451474b2a" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Find employees who have an age less than the average age of employees with incomes over 2.5 Lakh
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT *
+FROM Employee
+WHERE age < (
+    SELECT AVG(age)
+    FROM Employee
+    WHERE income > 250000
+);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1237" height="481" alt="image" src="https://github.com/user-attachments/assets/8426ce5b-6fda-46a0-ba93-b1b537a990c6" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
-
+Write a SQL query to Retrieve the names of customers who have a phone number that is not shared with any other customer.
 ```sql
--- Paste your SQL code below for Question 6
+SELECT name
+FROM customer
+WHERE phone IN (
+    SELECT phone
+    FROM customer
+    GROUP BY phone
+    HAVING COUNT(phone) = 1
+);
+
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="546" height="404" alt="image" src="https://github.com/user-attachments/assets/402e783c-4691-47aa-8650-adf306a6580c" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Retrieve the names and cities of customers who have the same city as customers with IDs 3 and 7
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT name, city
+FROM customer
+WHERE city IN (
+    SELECT city
+    FROM customer
+    WHERE id IN (3, 7)
+);
+
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="597" height="417" alt="image" src="https://github.com/user-attachments/assets/d98ebd88-ad02-4acb-b124-61f7034215c2" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
-
+Write a SQL query to Find employees who have an age less than the average age of employees with incomes over 1 million
 ```sql
--- Paste your SQL code below for Question 8
+SELECT id, name, age, city, income
+FROM Employee
+WHERE age < (
+    SELECT AVG(age)
+    FROM Employee
+    WHERE income > 1000000
+);
+
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1258" height="396" alt="image" src="https://github.com/user-attachments/assets/b0518c11-b765-4c83-bf2c-8bfd60188999" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Identify customers whose city is different from the city of the customer with the highest ID
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT id, name, city, email, phone
+FROM customer
+WHERE city <> (
+    SELECT city
+    FROM customer
+    WHERE id = (
+        SELECT MAX(id)
+        FROM customer
+    )
+);
+
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1245" height="452" alt="image" src="https://github.com/user-attachments/assets/55571c7e-d713-4c3f-b52b-6f69742c753d" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query that retrieves the names of students and their corresponding grades, where the grade is equal to the maximum grade achieved in each subject.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT student_name, grade
+FROM GRADES g
+WHERE grade = (
+    SELECT MAX(grade)
+    FROM GRADES
+    WHERE subject = g.subject
+);
+
 ```
 
 **Output:**
+<img width="745" height="371" alt="image" src="https://github.com/user-attachments/assets/8bf4af57-931e-4477-b2de-ebda2f49a533" />
 
-![Output10](output.png)
 
 
 ## RESULT
